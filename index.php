@@ -340,7 +340,8 @@
                         href="https://www.facebook.com/StaffezLesTous.asso/"><i
                             class="fab fa-fw fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1"
-                        href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+                        href="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftwitter.com%2Fstaffezlestous&psig=AOvVaw1x_1n9xVeOWduVGL266-0X&ust=1710856680244000&source=images&cd=vfe&opi=89978449&ved=2ahUKEwiCy-L2-_2EAxWIUaQEHfQXCFMQr4kDegQIARBL"><i
+                            class="fab fa-fw fa-twitter"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1"
                         href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
                     <a class="btn btn-outline-light btn-social mx-1"

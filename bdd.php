@@ -58,13 +58,52 @@ function createArticlesTable($conn)
     }
 }
 
+function createEventsTable($conn)
+{
+    try {
+        // Requête SQL pour vérifier si la table "events" existe déjà
+        $checkTableExists = "SHOW TABLES LIKE 'events'";
+        $result = $conn->query($checkTableExists);
+        $tableExists = $result->rowCount() > 0;
+
+        if ($tableExists) {
+            // Si la table existe déjà, affiche un message indiquant cela
+            echo "La table 'events' existait déjà.";
+        } else {
+            // Sinon, crée la table "events"
+            $sql = "CREATE TABLE events (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                image VARCHAR(255) NOT NULL,
+                start_date DATETIME NOT NULL,
+                end_date DATETIME NOT NULL,
+                name VARCHAR(255) NOT NULL,
+                city VARCHAR(255) NOT NULL,
+                description TEXT NOT NULL,
+                date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                last_update TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            )";
+
+            // Exécute la requête SQL pour créer la table
+            $conn->exec($sql);
+
+            // Affiche un message indiquant que la table 'events' a été créée avec succès
+            echo "La table 'events' a été créée avec succès.";
+        }
+    } catch (PDOException $e) {
+        // Affiche un message d'erreur s'il y a un problème lors de la création de la table
+        echo "Erreur lors de la création de la table 'events' : " . $e->getMessage();
+    }
+}
+
+
 
 // Établir une connexion à la base de données
 $conn = connectToDatabase($servername, $username, $password, $dbname);
 
-// Si la connexion est établie, créer la table "articles"
+// Si la connexion est établie, créer les tables "articles" et events
 if ($conn) {
     createArticlesTable($conn);
+    createEventsTable($conn);
 
     // Fermer la connexion PDO
     $conn = null;
